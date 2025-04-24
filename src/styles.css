@@ -1,0 +1,125 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs {
+  display: contents;
+  width: 100%;
+  justify-content: space-around;
+  background-color: #cd2355;
+}
+.tabs button {
+  background-color: #cd2355;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+  width: 100%;
+}
+.tabs button:hover {
+  background-color: #ff2969;
+}
+.tabs button.active {
+  background-color: #cd2355;
+}
+
+.tab-content {
+  display: none;
+  padding: 20px;
+}
+.tab-content.active {
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+.gallery img, .gallery video {
+  max-width: 24%;
+  margin: 5px;
+  border: 1px solid #ccc;
+}
+
+.button-container {
+  position: relative;
+  display: inline-block;
+}
+
+.button {
+  width: 150px;
+  background-color: #ff2969;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  font-size: 14;
+  margin: 5px;
+  padding: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.button-indicator {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #0bfc0b;
+  display: block;
+}
+
+.stream {
+  width: 640px;
+  height: 360px;
+  padding: 5px;
+  padding-top: 0px;
+  margin-top: -15px;
+  display: inline-block;
+}
+
+@media (min-width: 401px) {
+  .stream {
+    width: 640px;
+    height: 360px;
+    padding: 5px;
+    padding-top: 0px;
+    margin-top: -15px;
+    display: inline-block;
+  }  
+  .stream img {
+    width: 640px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 400px) {
+  .stream {
+    width: 320px;
+    height: 180px;
+    padding: 5px;
+    padding-top: 0px;
+    margin-top: -15px;
+    display: inline-block;
+  }  
+  .stream img {
+    width: 320px;
+    height: 180px;
+  }
+}
+
+.error {
+  color: #cd2355;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  margin-left: 5px;
+  top: 150px;
+  position: relative;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <title>DashCam Pi</title>
+</head>
+<body>
+
+<div class="tabs">
+  <button class="tab-link active">DashCam Pi Home</button><br>
+  <button class="tab-link" onclick="window.location.href='gallery.html';">Gallery</button>
+</div>
+
+<div class="error" style="visibility: '<!--##ERROR##-->'">Camera not ready, check and restart!</div>
+
+<div style="visibility: '<!--##VISIBILITY##-->'">
+  <div class="stream">
+    <!--##IMG_STREAM##-->    
+  </div>
+  <br>
+  <div class="button-container">
+    <button class="button" onclick="window.location.href='<!--##HREF_PREVIEW##-->';" disabled><!--##BUTTON_PREVIEW##--></button>
+    <div style="display: none;" class="button-indicator"></div>
+  </div>
+  <br>
+  <div class="button-container">
+    <button class="button" onclick="window.location.href='<!--##HREF_RECORD##-->';" disabled><!--##BUTTON_RECORD##--></button>
+    <div style="display: none;" class="button-indicator"></div>
+  </div>
+  <br>
+  <button class="button" onclick="window.location.href='/take_photo';">TAKE A PHOTO</button>
+</div>
+
+<button class="button" onclick="if (confirm('Are you sure you want to restart DashCam Pi?')) window.location.href='/restart';">RESTART</button>
+<br>
+<button class="button" onclick="if (confirm('Are you sure you want to turn off DashCam Pi?')) window.location.href='/turnoff';">TURN OFF</button>
+
+<script>
+  const container = document.getElementsByClassName("button-container");
+  for (i = 0; i < container.length; i++) {      
+    const button = container[i].getElementsByTagName("button");
+    //console.log(button[0].innerText);
+    if (button[0].disabled && button[0].innerText != '') {
+      button[0].disabled = false;        
+    }
+    if (!button[0].disabled && button[0].innerText.indexOf('STOP') > -1) {
+      const indicator = container[i].getElementsByTagName("div");
+      indicator[0].style.display = "block";
+    }
+  }
+</script>
+
+</body>
+</html>
